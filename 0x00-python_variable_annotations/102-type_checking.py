@@ -9,7 +9,7 @@ from typing import Tuple, List
 def zoom_array(lst: Tuple, factor: int = 2) -> List:
     """Return a list with each item in the tuple repeated a given number."""
     return [
-        item 
+        item
         for item in lst
         for _ in range(factor)
     ]
