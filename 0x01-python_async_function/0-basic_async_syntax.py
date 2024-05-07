@@ -1,11 +1,21 @@
-import importlib
+#!/usr/bin/env python3
+"""
+Module defining a basic asynchronous coroutine.
+"""
 import asyncio
-import sys
-from typing import List
+import random
 
-sys.path.append('.')  # Ensure the current directory is in `sys.path`
 
-# Dynamic import to avoid syntax issues
-basic_module = importlib.import_module("0-basic_async_syntax")
+async def wait_random(max_delay: int = 10) -> float:
+    """
+    Waits for a random delay and returns it.
 
-wait_random = basic_module.wait_random  # Assign the imported function
+    Args:
+        max_delay (int): Maximum delay time.
+
+    Returns:
+        float: The random delay.
+    """
+    delay = random.uniform(0, max_delay)
+    await asyncio.sleep(delay)
+    return delay
