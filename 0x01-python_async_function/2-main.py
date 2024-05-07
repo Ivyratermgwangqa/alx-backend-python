@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
+import sys
+sys.path.append('.')
 
-measure_time = __import__('2-measure_runtime').measure_time
+from 2-measure_runtime import measure_time
 
-n = 5
-max_delay = 9
-
-print(measure_time(n, max_delay))
+print(measure_time(5, 9))
