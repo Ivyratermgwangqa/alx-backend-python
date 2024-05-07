@@ -4,6 +4,9 @@ Module that defines a function to run multiple tasks concurrently
 """
 import asyncio
 from typing import List
+import sys
+sys.path.append('.')
+
 from 3-tasks import task_wait_random
 
 
