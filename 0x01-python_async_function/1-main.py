@@ -2,10 +2,9 @@
 '''
 Test file for printing the correct output of the wait_n coroutine
 '''
-import asyncio
+import sys
+sys.path.append('.')
 
-wait_n = __import__('1-concurrent_coroutines').wait_n
+from 2-measure_runtime import measure_time
 
-print(asyncio.run(wait_n(5, 5)))
-print(asyncio.run(wait_n(10, 7)))
-print(asyncio.run(wait_n(10, 0)))
+print(measure_time(5, 9))
