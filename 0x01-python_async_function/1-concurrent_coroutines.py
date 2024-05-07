@@ -1,19 +1,20 @@
 #!/usr/bin/env python3
 import asyncio
+import importlib
 from typing import List
-from 0-basic_async_syntax import wait_random
+
+sys.path.append('.')  # Ensure the current directory is in `sys.path`
+
+# Dynamic import to avoid syntax issues
+basic_module = importlib.import_module("0-basic_async_syntax")
+
+# Import the correct function
+wait_random = basic_module.wait_random
 
 
 async def wait_n(n: int, max_delay: int) -> List[float]:
     """
-    Spawns `n` instances of `wait_random` and returns the delays.
-
-    Args:
-        n (int): Number of times to spawn `wait_random`.
-        max_delay (int): Maximum delay time.
-
-    Returns:
-        List[float]: Sorted list of delays.
+    Spawn `n` instances of `wait_random` and return the delays in ascending order.
     """
     delays = await asyncio.gather(*[wait_random(max_delay) for _ in range(n)])
-    return sorted(delays)  # Returns sorted list of delays
+    return sorted(delays)
