@@ -3,6 +3,9 @@
 Module to measure execution time of concurrent coroutines
 """
 import time
+import sys
+sys.path.append('.')
+
 from 1-concurrent_coroutines import wait_n
 
 
