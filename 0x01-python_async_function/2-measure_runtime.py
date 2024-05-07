@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
 """
-Module to measure execution time of concurrent coroutines
+Module that measures the execution time of `wait_n`.
 """
 import time
-import sys
-sys.path.append('.')
+import asyncio
+import importlib
 
-from 1-concurrent_coroutines import wait_n
+# Dynamically import the module with `importlib`
+module_name = '1-concurrent_coroutines'
+imported_module = importlib.import_module(module_name)
+
+# Get the `wait_n` function from the imported module
+wait_n = imported_module.wait_n
 
 
 def measure_time(n: int, max_delay: int) -> float:
-    """
-    Measure the total execution time for `wait_n(n, max_delay)`.
-    """
     start_time = time.time()
     asyncio.run(wait_n(n, max_delay))
     total_time = time.time() - start_time
