@@ -3,6 +3,9 @@
 Module that defines a function to create an asyncio task
 """
 import asyncio
+import sys
+sys.path.append('.')
+
 from 0-basic_async_syntax import wait_random
 
 
