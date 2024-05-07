@@ -7,12 +7,12 @@ from typing import List  # Imports at the top
 
 # Importing `task_wait_random` from `3-tasks`
 import importlib
-task_wait_random = importlib.import_module("3-tasks").task_wait_random  # Dynamic import at the top
+task_wait_random = importlib.import_module("3-tasks").task_wait_random
 
 
 async def task_wait_n(n: int, max_delay: int) -> List[float]:
     """
-    Creates `n` asyncio tasks with `task_wait_random` and returns the delays in ascending order.
+    Creates `n` asyncio tasks with `task_wait_random` and returns the delays.
 
     Args:
         n (int): Number of tasks to create.
