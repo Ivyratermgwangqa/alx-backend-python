@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 import asyncio
 from typing import List
-from 0-basic_async_syntax import wait_random  # Importing from 0-basic_async_syntax
+from 0-basic_async_syntax import wait_random
+
 
 async def wait_n(n: int, max_delay: int) -> List[float]:
     """
-    Spawns `n` instances of `wait_random` and returns the delays in ascending order.
+    Spawns `n` instances of `wait_random` and returns the delays.
 
     Args:
         n (int): Number of times to spawn `wait_random`.
