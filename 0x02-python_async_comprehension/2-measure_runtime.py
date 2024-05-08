@@ -9,7 +9,7 @@ import importlib  # Dynamic import to handle module names with dashes
 
 # Importing the `async_comprehension` coroutine
 async_comprehension_module = importlib.import_module("1-async_comprehension")
-async_comprehension = async_comprehension_module.async_comprehension 
+async_comprehension = async_comprehension_module.async_comprehension
 
 
 async def measure_runtime() -> float:
