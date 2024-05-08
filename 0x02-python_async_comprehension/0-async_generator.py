@@ -6,6 +6,7 @@ The `async_generator` coroutine loops 10 times, waits for 1 second
 asynchronously, and yields a random floating-point number between 0 and 10.
 """
 
+
 import asyncio
 import random
 from typing import Generator
