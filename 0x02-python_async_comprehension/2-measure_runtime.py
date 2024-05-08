@@ -2,7 +2,7 @@
 """
 This module defines a coroutine to measure runtime for asynchronous tasks.
 
-The `measure_runtime` coroutine measures the total runtime for executing the 
+The `measure_runtime` coroutine measures the total runtime for executing the,
 `async_comprehension` coroutine four times in parallel, using `asyncio.gather`.
 """
 
