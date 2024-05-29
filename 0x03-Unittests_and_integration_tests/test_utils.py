@@ -62,17 +62,23 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
     """Integration tests for the GithubOrgClient class."""
 
     @classmethod
-    @patch('client.requests.get')
-    def setUpClass(cls, mock_get):
+    def setUpClass(cls):
         """Set up the mock for requests.get to use fixtures as payloads."""
-        cls.get_patcher = patch('client.requests.get')
-        mock_get.side_effect = lambda url: Mock(json=lambda: cls.org_payload if "orgs" in url else cls.repos_payload)
-        cls.get_patcher.start()
+        cls.get_patcher = patch('client.requests.get', side_effect=cls.mocked_requests_get)
+        cls.mock_get = cls.get_patcher.start()
 
     @classmethod
     def tearDownClass(cls):
         """Stop the patcher for requests.get."""
         cls.get_patcher.stop()
+
+    @classmethod
+    def mocked_requests_get(cls, url):
+        """Mock function for requests.get to return different payloads based on the URL."""
+        if "orgs" in url:
+            return Mock(json=lambda: cls.org_payload)
+        if "repos" in url:
+            return Mock(json=lambda: cls.repos_payload)
 
     def test_public_repos(self):
         """Test that public_repos method returns the expected list of repos."""
